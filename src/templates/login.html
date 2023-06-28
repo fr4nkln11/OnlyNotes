@@ -4,6 +4,16 @@
 {% endblock %}
 {% block active_login %}active{% endblock %}
 {% block content %}
-    <h1>Login Page</h1>
-    <h2>Login here...</h2>
+    <form method="POST">
+        <h3 class="text-center">Login</h3>
+        <div class="mb-3 form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
 {% endblock %}
