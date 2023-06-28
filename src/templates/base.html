@@ -20,21 +20,23 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link {% block active_home %}{% endblock %}" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link {% block active_login %}{% endblock %}" href="/login">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
+                <a class="nav-link {% block active_register %}{% endblock %}" href="/register">Register</a>
               </li>
             </ul>
           </div>
         </div>
     </nav>
-    {% block content %}
-        <!-- Page Content -->
-    {% endblock %}
+    <div class="container-fluid">
+        {% block content %}
+            <!-- Page Content -->
+        {% endblock %}
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

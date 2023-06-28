@@ -5,6 +5,8 @@ def create_app():
     app.config["SECRET_KEY"] = "randomshit"
 
     from .views import views
+    from .auth import auth
     app.register_blueprint(views)
+    app.register_blueprint(auth)
 
     return app
