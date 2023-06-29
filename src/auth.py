@@ -68,8 +68,13 @@ def login():
     return render_template("login.html")
 
 
+@auth.route("/logout")
+def logout():
+    return "logged out"
+
+
 @auth.route("/sign-up", methods=["GET", "POST"])
-def register():
+def sign_up():
     if request.method == "POST":
         # get all data
         email = request.form.get("email")
