@@ -18,7 +18,12 @@ def valid_password(password: str, password2: str) -> bool:
 
 
 def valid_email(email: str) -> bool:
-    if "@" not in email:
+    user = User.query.filter_by(email=email).first()
+    if user:
+        flash("Email already exists.", category="error")
+        return False
+    elif "@" not in email:
+        flash("Invalid Email", category="error")
         return False
     else:
         return True
@@ -26,6 +31,7 @@ def valid_email(email: str) -> bool:
 
 def valid_name(name: str) -> bool:
     if len(name) < 2:
+        flash("Name cannot be less than 2 characters", category="error")
         return False
     else:
         return True
@@ -33,10 +39,8 @@ def valid_name(name: str) -> bool:
 
 def validate(email: str, name: str, password: str, password2: str):
     if not valid_email(email):
-        flash("Invalid Email", category="error")
         return False
     elif not valid_name(name):
-        flash("Name cannot be less than 2 characters", category="error")
         return False
     elif not valid_password(password, password2):
         return False
@@ -46,6 +50,20 @@ def validate(email: str, name: str, password: str, password2: str):
 
 @auth.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                # success
+                flash("Logged in succesfully", category="success")
+            else:
+                flash("Incorrect password, try again.", category="error")
+        else:
+            flash("Email does not exist", category="error")
+
     return render_template("login.html")
 
 
