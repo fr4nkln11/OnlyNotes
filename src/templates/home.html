@@ -8,7 +8,10 @@
 <h1 class="text-center" >Notes</h1>
 <ul class="list-group list-group-flush" id="notes">
   {% for note in user.notes %}
-  <li class="list-group-item">{{ note.data }}</li>
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="btn-close position-absolute top-50 end-0 translate-middle" onClick="deleteNote({{ note.id }})" aria-label="Close"></button>
+  </li>
   {% endfor %}
 </ul>
 <form method="POST">
