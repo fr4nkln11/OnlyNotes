@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, redirect, render_template, request, flash, jsonify, url_for
 from flask_login import current_user, login_required
 from .models import Note
 from . import db
@@ -16,7 +16,14 @@ def validNote(note):
         return False
 
 
-@views.route("/", methods=["GET", "POST"])
+@views.route("/")
+def welcome():
+    if current_user.is_authenticated:
+        return redirect(url_for("views.home"))
+    return render_template("welcome.html", user=current_user)
+
+
+@views.route("/home", methods=["GET", "POST"])
 @login_required
 def home():
     if request.method == "POST":
