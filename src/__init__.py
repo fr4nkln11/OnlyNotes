@@ -26,6 +26,10 @@ def create_app():
 
     login_manager = LoginManager()
     login_manager.login_view = "auth.login"
+    login_manager.login_message = (
+        "You have to login before you can access your notes, duhh 🙄"
+    )
+    login_manager.login_message_category = "warning"
     login_manager.init_app(app)
 
     @login_manager.user_loader
