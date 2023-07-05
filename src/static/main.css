@@ -1,9 +1,32 @@
 body {
     background-color: rgb(226, 223, 255);
 }
+
+.main_container {
+    margin-top: 4rem!important;
+}
+
 .navbar {
     background-color: rgb(226, 223, 255);
 }
 .card {
     background-color: whitesmoke;
+}
+
+.card > .card-body.btn:active {
+    border-color:transparent;
+}
+
+#deleteNote-btn {
+    color: rgb(220,53,69);
+    opacity: .55
+}
+
+#deleteNote-btn:hover {
+    opacity: 1;
+}
+
+#deleteNote-btn:active {
+    border-color:transparent;
+    color: rgb(180,13,29)
 }
