@@ -5,32 +5,39 @@
 {% block active_home %}active{% endblock %}
 {% block content %}
 
-
 <div class="container">
-  <h1 class="m-2">My Notes</h1>
-  <hr>
-  <div class="row g-3 mb-5" id="notes" data-masonry='{"percentPosition": true }'>
-    {% for note in user.notes %}
-    <div class="col-6 col-lg-3">
-      <div class="card border border-0 shadow-sm">
-        <div class="border-0 p-0 m-0">
-          <button type="button" class="opacity-75 text-danger btn btn-sm bi bi-trash3-fill float-end" onClick="deleteNote({{ note.id }})" aria-label="Close">
-          </button>
-        </div>
-        <div class="card-body p-3">
-          <p class="card-text text-start">{{ note.data }}</p>
+    <div class="modal fade" id="noteViewModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-3 fs-4" id="noteViewModalContent">
+          </div>
         </div>
       </div>
     </div>
-    {% endfor %}
-  </div>
-  <form method="POST">
-    <textarea name="note" id="note" class="form-control"></textarea>
-    <br>
-    <div class="text-center">
-      <button type="submit" class="btn btn-primary">Add Note</button>
+    <h1 class="m-2">My Notes</h1>
+    <hr>
+    <div class="row g-3 mb-5" id="notes" data-masonry='{"percentPosition": true }'>
+      {% for note in user.notes %}
+      <div class="col-6 col-lg-3">
+        <div class="btn card border border-0 shadow-sm" onclick="noteModal({{ note.id }})">
+          <div class="p-0 m-0">
+            <button type="button" class="opacity-75 text-danger btn btn-sm bi bi-trash3-fill float-end" onClick="deleteNote({{ note.id }})" aria-label="Close">
+            </button>
+          </div>
+          <div class="card-body p-3">
+            <p class="card-text text-start" id="noteContent{{ note.id }}">{{ note.data }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-  </form>
-</div>
+    <form method="POST">
+      <textarea name="note" id="note" class="form-control"></textarea>
+      <br>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+      </div>
+    </form>
+  </div>
 
 {% endblock %}
