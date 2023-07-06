@@ -17,16 +17,19 @@ body {
     border-color:transparent;
 }
 
-#deleteNote-btn {
+.back-btn {
+    font-size: 25px;
+}
+
+.delete-btn {
     color: rgb(220,53,69);
     opacity: .55
 }
 
-#deleteNote-btn:hover {
+.delete-btn:hover {
     opacity: 1;
 }
 
-#deleteNote-btn:active {
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
     border-color:transparent;
-    color: rgb(180,13,29)
 }

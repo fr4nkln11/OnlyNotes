@@ -7,9 +7,17 @@
 
 <div class="container">
     <div class="modal fade" id="noteViewModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-        <div class="modal-content">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content border-0">
+          <div class="modal-header p-0 m-0">
+            <button type="button" data-bs-dismiss="modal" class="back-btn btn bi bi-arrow-left float-start" aria-label="Close" >
+            </button>
+          </div>
           <div class="modal-body p-3 fs-4" id="noteViewModalContent">
+          </div>
+          <div class="modal-footer p-0 m-0">
+            <button type="button" id="deleteNote-btn" class="delete-btn btn bi bi-trash-fill float-end">
+            </button>
           </div>
         </div>
       </div>
@@ -20,10 +28,10 @@
       {% for note in user.notes %}
       <div class="col-6 col-lg-3">
         <div class="card border border-0 p-0 shadow-sm">
-          <div class="p-0 m-0">
+          <!-- <div class="p-0 m-0">
             <button type="button" id="deleteNote-btn" class="btn btn-sm bi bi-trash3-fill float-end" aria-label="Close" onclick="deleteNote({{ note.id }})">
             </button>
-          </div>
+          </div> -->
           <div class="btn card-body p-3" onclick="noteModal({{ note.id }})" >
             <p class="card-text text-start m-0">{{ truncate(note.data) }}</p>
             <p class="d-none" id="noteContent{{ note.id }}">{{ note.data }}</p>

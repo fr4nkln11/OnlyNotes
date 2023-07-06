@@ -11,7 +11,10 @@ function noteModal(noteId) {
   let modalElement = document.querySelector("#noteViewModal")
   let modalContent = document.querySelector("#noteViewModalContent")
   let noteContent = document.querySelector(`#noteContent${noteId}`)
-  console.log(noteContent.textContent)
+  let deleteNote_btn = document.querySelector("#deleteNote-btn")
+  deleteNote_btn.onclick = function() {
+    deleteNote(noteId)
+  }
   modalContent.textContent = noteContent.textContent
   var noteModal = new bootstrap.Modal(modalElement, {
     backdrop: true
