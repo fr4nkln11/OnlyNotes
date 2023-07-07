@@ -33,3 +33,12 @@ body {
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
     border-color:transparent;
 }
+
+.new-note-btn {
+    font-size: 25px;
+}
+
+.new-note {
+    height: 85vh!important;
+    resize: none;
+}
