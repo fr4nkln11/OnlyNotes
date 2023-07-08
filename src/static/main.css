@@ -1,16 +1,38 @@
 body {
-    background-color: rgb(226, 223, 255);
+    background-color: #f5f5f5;
+    color: #040320;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
 }
 
 .main_container {
     margin-top: 4rem!important;
 }
 
+.page-head-text {
+    font-weight: 700;
+}
+
+.brand {
+    font-weight: 700;
+}
+
+.logout-btn {
+    font-size: 25px;
+    color: rgb(220,53,69);
+    opacity: .55
+}
+
+.logout-btn:hover {
+    color: rgb(220,53,69);
+    opacity: 1;
+}
+
 .navbar {
-    background-color: rgb(226, 223, 255);
+    background-color: #f5f5f5;
 }
 .card {
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
 }
 
 .card > .card-body.btn:active {
@@ -27,6 +49,7 @@ body {
 }
 
 .delete-btn:hover {
+    color: rgb(220,53,69);
     opacity: 1;
 }
 

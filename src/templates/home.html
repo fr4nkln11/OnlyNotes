@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <h1 class="m-2">My Notes</h1>
+    <h1 class="m-2 page-head-text">Welcome, {{ user.username }}</h1>
     <hr>
     <div class="row g-3 mb-5" id="notes" data-masonry='{"percentPosition": true }'>
       {% for note in user.notes %}
