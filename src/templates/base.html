@@ -21,32 +21,11 @@
           </a>
           {% if user.is_authenticated %}
           <div class="d-flex justify-content-end align-items-center">
-            <span class="mx-2">{{ user.username }}</span>
+            <span>{{ user.username }}</span>
+            <div class="vr mx-2"></div>
             <a class="nav-link bi bi-box-arrow-right btn logout-btn" href="/logout" role="button"></a>
           </div>
           {% endif %}
-          <!-- <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
-          <!-- <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link {% block active_home %}{% endblock %}" aria-current="page" href="/home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
-              </li>
-              {% else %}
-              {% endif %}
-              <li class="nav-item">
-                <a class="nav-link {% block active_login %}{% endblock %}" href="/login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {% block active_register %}{% endblock %}" href="/sign-up">Sign up</a>
-              </li>
-            </ul>
-          </div> -->
         </div>
     </nav>
     <div class="main_container flex-shrink container-fluid">

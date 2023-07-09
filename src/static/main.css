@@ -1,6 +1,28 @@
+:root {
+    --base: #eff1f5;
+    --text: #4c4f69;
+    --crust: #dce0e8;
+    --mantle: #e6e9ef;
+    --label1: #6c6f85;
+    --label2: #5c5f77;
+    --overlay0:	#9ca0b0;
+    --overlay1: #8c8fa1;
+    --overlay2: #7c7f93;
+    --green: #40a02b;
+    --red: #d20f39;
+    --blue: #1e66f5;
+    --yellow: 	#df8e1d;
+    --surface0: #ccd0da;
+    --surface1: #bcc0cc;
+    --surface2: #acb0be;
+    --subtext0: #6c6f85;
+    --subtext1: #5c5f77;
+}
+
+
 body {
-    background-color: #f5f5f5;
-    color: #040320;
+    background-color: var(--base);
+    color: var(--text);
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
@@ -15,42 +37,59 @@ body {
 }
 
 .brand {
-    font-weight: 500    ;
+    font-weight: 500;
+    color: var(--text);
 }
 
 .logout-btn {
-    font-size: 25px;
-    color: rgb(220,53,69);
+    font-size: 20px;
     opacity: .55
 }
 
 .logout-btn:hover {
-    color: rgb(220,53,69);
     opacity: 1;
+    color: var(--red);
 }
 
 .navbar {
-    background-color: #f5f5f5;
+    background-color: var(--mantle);
+    color: var(--text);
 }
 .card {
-    background-color: #f5f5f5;
-}
+    background: var(--base);    
+    border-color: var(--surface2)!important;
+    color: var(--text);
+}   
 
 .card > .card-body.btn:active {
-    border-color:transparent;
+    border-color: var(--crust);
+}
+.card > .card-body.btn:hover {
+    border-color: transparent;
+    background-color: var(--overlay0);
+    color: var(--mantle);
 }
 
 .back-btn {
     font-size: 25px;
 }
 
+.submit-btn {
+    font-size: 25px;
+    color: var(--green);
+}
+
 .delete-btn {
-    color: rgb(220,53,69);
+    color: var(--red);
     opacity: .55
 }
 
+.text-mute {
+    color: var(--overlay1);
+}
+
 .delete-btn:hover {
-    color: rgb(220,53,69);
+    color: var(--red);
     opacity: 1;
 }
 
@@ -58,11 +97,51 @@ body {
     border-color:transparent;
 }
 
+.note-view-modal {
+    background-color: var(--base);
+    color: var(--text);
+    border-color: var(--surface2)!important;
+
+}
+
 .new-note-btn {
     font-size: 30px;
+    background-color: var(--subtext0);
+    color: var(--base);
+}
+
+.new-note-btn:hover {
+    background-color: var(--subtext1);
+    color: var(--base);
+}
+
+.new-note-modal {
+    background-color: var(--base);
+    color: var(--text);
+}
+
+.new-note-modal>form>.modal-header {
+    background-color: var(--crust);
 }
 
 .new-note {
     height: 85vh!important;
     resize: none;
+    background-color: var(--base);
+    color: var(--text);
+    border-color: transparent;
+    font-size: 20px;
+}
+
+.new-note:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: var(--base);
+    color: var(--text);
+    border-color: transparent;
+}
+
+.new-note::placeholder {
+    color: var(--subtext0);
+    font-weight: 500;
 }
