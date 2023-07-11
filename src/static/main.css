@@ -31,6 +31,30 @@ body {
     margin-top: 4rem!important;
 }
 
+.brand-display {
+    color: var(--text)!important;
+}
+
+.sign-up-btn {
+    background-color: var(--blue);
+    color: var(--base);
+}
+
+.sign-up-btn:hover, .sign-up-btn:active {
+    background-color: #024feb!important;
+    color: var(--base)!important;
+}
+
+.login-btn {
+    border-color: var(--overlay2);
+    color: var(--subtext0);
+}
+
+.login-btn:hover, .login-btn:active {
+    background-color: var(--subtext0)!important;
+    color: var(--base)!important;
+}
+
 .page-head-text {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -46,7 +70,7 @@ body {
     opacity: .55
 }
 
-.logout-btn:hover {
+.logout-btn:hover{
     opacity: 1;
     color: var(--red);
 }
