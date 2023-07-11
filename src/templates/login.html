@@ -4,16 +4,26 @@
 {% endblock %}
 {% block active_login %}active{% endblock %}
 {% block content %}
-    <form method="POST">
-        <h3 class="text-center">Login</h3>
-        <div class="mb-3 form-group">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email">
+    <div class="container">
+        <div class="card login-form m-auto">
+            <div class="card-body login-form-body">
+                <form method="POST">
+                    <div class="my-3">
+                        <h3 class="text-center">Login</h3>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="email" name="email" id="email" class="form-control form-input" placeholder="Enter your Email">
+                        <label for="email" class="form-label">Email Address</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="password" name="password" id="password" class="form-control form-input" placeholder="Enter Password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="my-3">
+                        <button class="btn btn-primary w-100" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="mb-3 form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
-        </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
+    </div>
 {% endblock %}
