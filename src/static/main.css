@@ -79,16 +79,16 @@ body {
     background-color: var(--mantle);
     color: var(--text);
 }
-.card {
+.note-card {
     background: var(--base);    
     border-color: var(--surface2)!important;
     color: var(--text);
 }   
 
-.card > .card-body.btn:active {
+.note-card > .card-body.btn:active {
     border-color: var(--crust);
 }
-.card > .card-body.btn:hover {
+.note-card > .card-body.btn:hover {
     border-color: transparent;
     background-color: var(--overlay0);
     color: var(--mantle);
@@ -168,4 +168,19 @@ body {
 .new-note::placeholder {
     color: var(--subtext0);
     font-weight: 500;
+}
+
+.login-form {
+    max-width: 330px;
+}
+
+.login-form-body {
+    background-color: var(--crust);
+    color: var(--text);
+}
+
+.form-input {
+    background-color: var(--mantle);
+    outline: none;
+    border-width: 0;
 }
