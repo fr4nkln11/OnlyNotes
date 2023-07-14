@@ -10,14 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/src/static/favicon.svg">
     
 </head>
 <body class="d-flex flex-column h-100">
     <nav class="navbar shadow-sm fixed-top">
         <div class="container">
           <a class="navbar-brand brand" href="/">
-            <!-- <i class="bi bi-pen-fill"></i> -->
-            onlynotes 
+            <i class="bi bi-sticky"></i>
+            OnlyNotes 
           </a>
           {% if user.is_authenticated %}
           <div class="d-flex justify-content-end align-items-center">
