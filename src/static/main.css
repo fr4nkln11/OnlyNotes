@@ -103,9 +103,10 @@ body {
     color: var(--green);
 }
 
+
 .delete-btn {
     color: var(--red);
-    opacity: .55
+    opacity: .7;
 }
 
 .text-mute {

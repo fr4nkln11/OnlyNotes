@@ -6,13 +6,6 @@ import json
 
 views = Blueprint("views", __name__)
 
-def truncateNote(noteStr: str) -> str:
-    limit: int = 250
-    if len(noteStr) > limit:
-        return f"{noteStr[:limit]}..."
-    else:
-        return noteStr
-
 def validNote(note):
     if note != "":
         flash("Note added succesfully!", category="success")
@@ -40,7 +33,7 @@ def home():
             db.session.add(new_note)
             db.session.commit()
 
-    return render_template("home.html", user=current_user, truncate=truncateNote)
+    return render_template("home.html", user=current_user)
 
 
 @views.route("/delete-note", methods=["POST"])

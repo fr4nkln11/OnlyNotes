@@ -15,8 +15,7 @@
           </div>
           <div class="modal-body p-3 fs-4">
             <div id="noteViewDate" class="text-muted fs-6"></div>
-            <!-- <hr> -->
-            <div id="noteViewModalContent"></div>
+            <textarea name="note" id="noteViewModalContent" class="new-note form-control p-0" placeholder="Type your notes here..."></textarea>
           </div>
           <div class="modal-footer border-0 p-0 m-0">
             <button type="button" id="deleteNote-btn" class="delete-btn btn bi bi-trash-fill float-end">
@@ -36,7 +35,7 @@
               </button>
             </div>
             <div class="modal-body p-3 fs-3">
-              <textarea name="note" id="note" class="new-note form-control" placeholder="Type your notes here..."></textarea>
+              <textarea name="note" id="note" class="new-note form-control" placeholder="Type your notes here...">Sample</textarea>
             </div>
           </form>
         </div>
@@ -44,13 +43,12 @@
     </div>
     <h1 class="my-3 page-head-text">{{ user.username }}'s notes</h1>
     <!-- <hr> -->
-    <div class="row g-3 mb-5 note-section" id="notes" data-masonry='{"percentPosition": true }'>
+    <div class="row note-grid g-3 mb-5 note-section" id="notes">
       {% for note in user.notes[::-1] %}
       <div class="col-6 col-lg-3">
         <div class="card note-card p-0 shadow-sm">
           <div class="btn card-body p-3" onclick="noteModal({{ note.id }})" >
-            <p class="card-text text-start m-0">{{ truncate(note.data) }}</p>
-            <p class="d-none" id="noteContent{{ note.id }}">{{ note.data }}</p>
+            <p class="card-text text-start m-0" id="noteContent{{ note.id }}">{{ note.data }}</p>
             <p class="d-none" id="noteDate{{ note.id }}">{{ note.date }}</p>
           </div>
         </div>
