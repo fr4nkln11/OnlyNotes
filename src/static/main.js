@@ -1,6 +1,8 @@
 var grid = document.querySelector('.note-grid');
 var msnry = new Masonry( grid, {
-  percentPosition: true
+  percentPosition: true,
+  itemSelector: '.note-col',
+  columnWidth: '.note-col'
 });
 
 // /**
@@ -66,8 +68,10 @@ function noteModal(noteId) {
 
   // save changes when the modal is dismissed
   modalElement.addEventListener("hidden.bs.modal", () => {
-    console.log(modalContent.value)
-    editNote(noteId, modalContent.value)
+    if (modalContent.value != noteContent.textContent) {
+      console.log(modalContent.value)
+      editNote(noteId, modalContent.value)
+    }
   })
 
   note_Modal.show()
