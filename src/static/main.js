@@ -1,9 +1,9 @@
-var grid = document.querySelector('.note-grid');
+var grid = document.querySelector('.note-grid')
 var msnry = new Masonry( grid, {
   percentPosition: true,
   itemSelector: '.note-col',
   columnWidth: '.note-col',
-  horizontalOrder: true
+  // horizontalOrder: true
 });
 
 // /**
@@ -11,6 +11,20 @@ var msnry = new Masonry( grid, {
 //  * Client side truncation
 //  */
 
+function truncateNote(noteStr) {
+  var limit = 250;
+  if (noteStr.length > limit) {
+    return noteStr.slice(0, limit) + "...";
+  } else {
+    return noteStr;
+  }
+}
+
+noteCards = document.querySelectorAll(".note-content")
+noteCards.forEach((card_content) => {
+  card_content.textContent = truncateNote(card_content.textContent)
+  msnry.layout()
+});
 
 function deleteNote(noteId) {
   fetch("/delete-note", {
@@ -33,15 +47,6 @@ function editNote(noteId, noteData) {
   }).then((_res) => {
     window.location.href = "/"
   });
-}
-
-function truncateNote(noteStr) {
-  var limit = 250;
-  if (noteStr.length > limit) {
-    return noteStr.slice(0, limit) + "...";
-  } else {
-    return noteStr;
-  }
 }
 
 /**
