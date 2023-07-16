@@ -3,11 +3,11 @@ var msnry = new Masonry( grid, {
   percentPosition: true
 });
 
-/**
- * TODO:
- * Client side truncation
- * Editable notes
- */
+// /**
+//  * TODO:
+//  * Client side truncation
+//  * Editable notes
+//  */
 
 
 function deleteNote(noteId) {
@@ -16,6 +16,18 @@ function deleteNote(noteId) {
     body: JSON.stringify({ noteId: noteId })
   }).then((_res) => {
     window.location.href = "/";
+  });
+}
+
+function editNote(noteId, noteData) {
+  fetch("/edit-note", {
+    method: "PUT",
+    body: JSON.stringify({
+      noteId: noteId,
+      noteData: noteData
+    })
+  }).then((_res) => {
+    window.location.href = "/"
   });
 }
 
@@ -28,23 +40,36 @@ function truncateNote(noteStr) {
   }
 }
 
+/**
+ * This function controls the behaviour of an active note
+ */
+
 function noteModal(noteId) {
+
+  document.querySelector("#deleteNote-btn").addEventListener("click", () => {
+    deleteNote(noteId)
+  })
+
   let modalElement = document.querySelector("#noteViewModal")
+
   let modalContent = document.querySelector("#noteViewModalContent")
   let modalDate = document.querySelector("#noteViewDate")
   let noteContent = document.querySelector(`#noteContent${noteId}`)
-  // let noteContent_trunc = document.querySelector(`#noteContent-trunc${noteId}`)
   let noteDate = document.querySelector(`#noteDate${noteId}`)
-  let deleteNote_btn = document.querySelector("#deleteNote-btn")
-  // let updateNote_btn = document.querySelector("#updateNote-btn")
-  deleteNote_btn.onclick = function() {
-    deleteNote(noteId)
-  }
-  modalContent.textContent = noteContent.textContent
+
+  modalContent.value = noteContent.textContent
   modalDate.textContent = noteDate.textContent
+
   var note_Modal = new bootstrap.Modal(modalElement, {
     backdrop: true
   })
+
+  // save changes when the modal is dismissed
+  modalElement.addEventListener("hidden.bs.modal", () => {
+    console.log(modalContent.value)
+    editNote(noteId, modalContent.value)
+  })
+
   note_Modal.show()
 }
 

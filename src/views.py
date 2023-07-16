@@ -47,3 +47,17 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+@views.put("/edit-note")
+def edit_note():
+    note_payload = json.loads(request.data)
+    noteId = note_payload["noteId"]
+    noteData = note_payload["noteData"]
+    note = Note.query.get(noteId)
+    if note:
+        if note.user_id == current_user.id:
+            note.data = noteData
+            db.session.commit()
+            print("note modified")
+    
+    return jsonify({})
