@@ -2,13 +2,13 @@ var grid = document.querySelector('.note-grid');
 var msnry = new Masonry( grid, {
   percentPosition: true,
   itemSelector: '.note-col',
-  columnWidth: '.note-col'
+  columnWidth: '.note-col',
+  horizontalOrder: true
 });
 
 // /**
 //  * TODO:
 //  * Client side truncation
-//  * Editable notes
 //  */
 
 
@@ -17,7 +17,9 @@ function deleteNote(noteId) {
     method: "POST",
     body: JSON.stringify({ noteId: noteId })
   }).then((_res) => {
-    window.location.href = "/";
+    noteColumn = document.querySelector(`#note-col${noteId}`)
+    noteColumn.remove()
+    msnry.layout()
   });
 }
 
@@ -48,12 +50,10 @@ function truncateNote(noteStr) {
 
 function noteModal(noteId) {
 
-  document.querySelector("#deleteNote-btn").addEventListener("click", () => {
-    deleteNote(noteId)
-  })
-
+  let isDeleted = false
+  
   let modalElement = document.querySelector("#noteViewModal")
-
+  
   let modalContent = document.querySelector("#noteViewModalContent")
   let modalDate = document.querySelector("#noteViewDate")
   let noteContent = document.querySelector(`#noteContent${noteId}`)
@@ -65,12 +65,20 @@ function noteModal(noteId) {
   var note_Modal = new bootstrap.Modal(modalElement, {
     backdrop: true
   })
+  
+  document.querySelector("#deleteNote-btn").addEventListener("click", () => {
+    deleteNote(noteId)
+    isDeleted = true
+    note_Modal.hide()
+  })
 
   // save changes when the modal is dismissed
   modalElement.addEventListener("hidden.bs.modal", () => {
-    if (modalContent.value != noteContent.textContent) {
-      console.log(modalContent.value)
-      editNote(noteId, modalContent.value)
+    if (isDeleted == false) {
+      if ((modalContent.value != noteContent.textContent) && (modalContent.value != "")) {
+        console.log(modalContent.value)
+        editNote(noteId, modalContent.value)
+      }
     }
   })
 
