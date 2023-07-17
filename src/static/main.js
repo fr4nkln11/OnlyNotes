@@ -31,7 +31,7 @@ function deleteNote(noteId) {
     method: "POST",
     body: JSON.stringify({ noteId: noteId })
   }).then((_res) => {
-    noteColumn = document.querySelector(`#note-col${noteId}`)
+    let noteColumn = document.querySelector(`#note-col${noteId}`)
     noteColumn.remove()
     msnry.layout()
   });
@@ -45,7 +45,9 @@ function editNote(noteId, noteData) {
       noteData: noteData
     })
   }).then((_res) => {
-    window.location.href = "/"
+    let noteContent = document.querySelector(`#noteContent${noteId}`)
+    noteContent.textContent = noteData
+    msnry.layout()
   });
 }
 
