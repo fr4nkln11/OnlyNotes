@@ -28,7 +28,7 @@ noteCards.forEach((card_content) => {
 
 function deleteNote(noteId) {
   fetch("/delete-note", {
-    method: "POST",
+    method: "DELETE",
     body: JSON.stringify({ noteId: noteId })
   }).then((_res) => {
     let noteColumn = document.querySelector(`#note-col${noteId}`)
