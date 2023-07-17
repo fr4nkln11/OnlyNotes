@@ -8,7 +8,7 @@ var msnry = new Masonry( grid, {
 
 // /**
 //  * TODO:
-//  * Client side truncation
+//  * Dynamic note adding
 //  */
 
 function truncateNote(noteStr) {
@@ -83,7 +83,6 @@ function noteModal(noteId) {
   modalElement.addEventListener("hidden.bs.modal", () => {
     if (isDeleted == false) {
       if ((modalContent.value != noteContent.textContent) && (modalContent.value != "")) {
-        console.log(modalContent.value)
         editNote(noteId, modalContent.value)
       }
     }
