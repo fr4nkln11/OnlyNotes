@@ -22,18 +22,21 @@ def welcome():
     return render_template("welcome.html", user=current_user)
 
 
-@views.route("/home", methods=["GET", "POST"])
+@views.route("/home")
 @login_required
 def home():
-    if request.method == "POST":
-        note = request.form.get("note")
-
-        if validNote(note):
-            new_note = Note(data=note, user_id=current_user.id)
-            db.session.add(new_note)
-            db.session.commit()
-
     return render_template("home.html", user=current_user)
+
+@views.post("/add-note")
+def add_note():
+    note = json.loads(request.data)
+
+    if validNote(note):
+        new_note = Note(data=note["data"], user_id=current_user.id)
+        db.session.add(new_note)
+        db.session.commit()
+    
+    return jsonify({})
 
 
 @views.delete("/delete-note")

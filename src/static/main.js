@@ -26,6 +26,15 @@ noteCards.forEach((card_content) => {
   msnry.layout()
 });
 
+function addNote(data) {
+  fetch("/add-note", {
+    method: "POST",
+    body: JSON.stringify({data: data})
+  }).then((_res) => {
+    window.location.replace("/home")
+  });
+}
+
 function deleteNote(noteId) {
   fetch("/delete-note", {
     method: "DELETE",
@@ -96,5 +105,17 @@ function newNoteModal() {
   var new_note_Modal = new bootstrap.Modal(modalElement, {
     backdrop: true
   })
+
+  noteData = document.querySelector("#note")
+  submitNoteBtn = document.querySelector("#submitNote")
+
+  modalElement.addEventListener("hidden.bs.modal", () => {
+    noteData.value = ""
+  })
+
+  submitNoteBtn.addEventListener("click", () => {
+    addNote(noteData.value)
+  })
+
   new_note_Modal.show()
 }
