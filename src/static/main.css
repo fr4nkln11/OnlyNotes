@@ -173,11 +173,21 @@ body {
 }
 
 .login-form {
-    max-width: 330px;
+    max-width: 500px;
+    border: 0!important;
+    margin-top: 6rem!important;
+}
+
+@media (max-width: 760px) {
+    .login-form {
+        max-width: 100%;
+        border: 0!important;
+        margin-top: 5rem!important;
+    }    
 }
 
 .login-form-body {
-    background-color: var(--crust);
+    background-color: var(--base);
     color: var(--text);
 }
 
