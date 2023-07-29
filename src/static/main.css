@@ -35,17 +35,17 @@ body {
     color: var(--text)!important;
 }
 
-.sign-up-btn {
-    background-color: var(--blue);
+.get-started-btn {
+    background-color: var(--overlay2);
     color: var(--base);
 }
 
-.sign-up-btn:hover, .sign-up-btn:active {
-    background-color: #024feb!important;
+.get-started-btn:hover, .get-started-btn:active {
+    background-color: var(--overlay1)!important;
     color: var(--base)!important;
 }
 
-.login-btn {
+/* .login-btn {
     border-color: var(--overlay2);
     color: var(--subtext0);
 }
@@ -53,7 +53,7 @@ body {
 .login-btn:hover, .login-btn:active {
     background-color: var(--subtext0)!important;
     color: var(--base)!important;
-}
+} */
 
 .page-head-text {
     font-family: 'Poppins', sans-serif;
@@ -186,13 +186,50 @@ body {
     }    
 }
 
+.signup-form {
+    max-width: 500px;
+    border: 0!important;
+    margin-top: 3rem!important;
+}
+
+@media (max-width: 760px) {
+    .signup-form {
+        max-width: 100%;
+        border: 0!important;
+        margin-top: 2.5rem!important;
+    }    
+}
+
 .login-form-body {
     background-color: var(--base);
     color: var(--text);
 }
 
+.login-form-btn {
+    background-color: var(--overlay1);
+    color: var(--base)
+}
+
+.login-form-btn:hover {
+    background-color: var(--overlay2);
+    color: var(--base)
+}
+
+.form-floating>.form-control-plaintext~label::after,
+.form-floating>.form-control:focus~label::after,
+.form-floating>.form-control:not(:placeholder-shown)~label::after,
+.form-floating>.form-select~label::after {
+    background-color: var(--mantle);
+}
+
 .form-input {
     background-color: var(--mantle);
+    outline: none;
+    border-width: 0;
+}
+.form-input:focus {
+    background-color: var(--mantle);
+    box-shadow: none;
     outline: none;
     border-width: 0;
 }

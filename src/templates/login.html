@@ -2,27 +2,31 @@
 {% block title %}
     Login
 {% endblock %}
-{% block active_login %}active{% endblock %}
 {% block content %}
     <div class="container">
         <div class="card login-form m-auto">
             <div class="card-body login-form-body">
                 <form method="POST">
                     <div class="my-3">
-                        <h2 class="text-center display-2">Login</h2>
+                        <h2 class="text-center display-2">Log in</h2>
                     </div>
                     <div class="mb-3 form-floating">
                         <input type="email" name="email" id="email" class="form-control form-input" placeholder="Enter your Email">
-                        <label for="email" class="form-label">Email Address</label>
+                        <label for="email" class="form-label">Email</label>
                     </div>
                     <div class="mb-3 form-floating">
                         <input type="password" name="password" id="password" class="form-control form-input" placeholder="Enter Password">
-                        <label for="password">Password</label>
+                        <label for="password" class="form-label">Password</label>
                     </div>
                     <div class="my-3">
-                        <button class="btn btn-primary w-100" type="submit">Submit</button>
+                        <button class="btn w-100 login-form-btn" type="submit">Continue</button>
                     </div>
                 </form>
+                <div class="text-center">
+                    <small>Don't have an account?
+                        <a class="text-decoration-none" href="/sign-up">Sign Up</a>
+                    </small>
+                </div>
             </div>
         </div>
     </div>
