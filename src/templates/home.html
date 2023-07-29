@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="container">
-    <div class="modal fade" id="noteViewModal" aria-hidden="true">
+    <div class="modal fade" id="noteViewModal" data-note-id="" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-fullscreen-sm-down">
         <div class="modal-content note-view-modal">
           <div class="modal-header border-0 p-0 m-0">
@@ -18,7 +18,7 @@
             <textarea name="note" id="noteViewModalContent" class="new-note form-control p-0" placeholder="Type your notes here..."></textarea>
           </div>
           <div class="modal-footer border-0 p-0 m-0">
-            <button type="button" id="deleteNote-btn" class="delete-btn btn bi bi-trash-fill float-end">
+            <button type="button" id="deleteNote-btn" data-note-id="" class="delete-btn btn bi bi-trash-fill float-end">
             </button>
           </div>
         </div>
