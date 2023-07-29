@@ -76,7 +76,7 @@ body {
 }
 
 .navbar {
-    background-color: var(--mantle);
+    background-color: var(--base);
     color: var(--text);
 }
 .note-card {
